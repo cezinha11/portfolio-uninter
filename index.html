@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio</title>
+    <!-- linkando o arquivo css -->
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <!-- cabeçalho do site -->
+    <header>
+        <h1>Meu Portfólio</h1>
+    </header>
+
+    <!-- menu de navegação -->
+    <nav>
+        <!-- cada link tem um atributo "data-section" para identificar a seção -->
+        <a href="#" data-section="sobre">Sobre Mim</a>
+        <a href="#" data-section="formacao">Formação</a>
+        <a href="#" data-section="portfolio">Portfólio</a>
+        <a href="#" data-section="contato">Contato</a>
+    </nav>
+
+    <!-- conteúdo principal -->
+    <main>
+        <!-- seção sobre mim -->
+        <section id="sobre" class="active">
+            <h2>Sobre Mim</h2>
+            <p>Olá, eu sou o César! Sou apaixonado por tecnologia e hardware, sempre em busca de aprender mais sobre como as coisas funcionam e como posso melhorar a experiência do usuário com soluções tecnológicas. Nas minhas horas vagas, gosto de jogar, passar tempo com minha namorada e ouvir música.
+                Atualmente, estou me dedicando ao desenvolvimento da minha carreira, com o objetivo de me tornar um programador ou analista de suporte. Estou sempre aberto a novos desafios e buscando melhorar minhas habilidades para crescer na área de tecnologia.</p>
+                <img src="imagens/sobremim.jpeg" style="width: 500px; border-radius: 50%;">  
+            </section>
+    
+
+        <!-- seção da formação -->
+        <section id="formacao">
+            <h2>Formação</h2>
+            <p>Sou formado no ensino médio integrado ao técnico em Informática pela ETEC Professor Adhemar Batista Heméritas e atualmente estou cursando minha graduação em Análise e Desenvolvimento de Sistemas pela Uninter.</p>
+            <img src="imagens/formacao.png" style="width: 500px; border-radius: 50%;">
+        </section>
+
+        <!-- seção do portfólio -->
+        <section id="portfolio">
+            <h2>Portfólio</h2>
+            <p>Confira alguns dos meus trabalhos abaixo:</p>
+            <ul>
+                <li><a href="https://github.com/cezinha11/testuninter" target="_blank">Projeto Uninter!</a></li>
+            </ul>
+               <img src="imagens/portfólio.jpeg" style="width: 500px; border-radius: 50%;">
+        </section>
+
+        <!-- seção de contato -->
+        <section id="contato">
+            <h2>Contato</h2>
+            <form>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+            <img src="imagens/contato.png" style="width: 100px; border-radius: 50%;">
+        </section>
+    </main>
+
+    <!-- rodapé do site -->
+    <footer>
+        <p>&copy; Portfólio do César</p>
+    </footer>
+
+    <!-- script para alternar entre as seções -->
+    <script>
+        // seleciona todos os links do menu
+        const links = document.querySelectorAll('nav a');
+
+        // adiciona um evento de clique a cada link
+        links.forEach(link => {
+            link.addEventListener('click', event => {
+                event.preventDefault(); // impede o comportamento padrão do link
+
+                // esconde todas as seções
+                document.querySelectorAll('section').forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // mostra a seção correspondente ao link clicado
+                const targetSection = event.target.getAttribute('data-section');
+                document.getElementById(targetSection).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
